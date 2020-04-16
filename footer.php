@@ -1,0 +1,1 @@
+<p>this text is power by footer.php </p>
