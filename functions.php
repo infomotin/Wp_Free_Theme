@@ -83,5 +83,19 @@
     set_post_thumbnail_size( 825, 510, true );
     }
     add_action( 'after_setup_theme', 'dazzle_feature');
+
+
+    //post type declearing 
+    function dazzle_post_type(){
+        register_post_type( 'event', array(
+            'public'=>true,
+            'labels'=>array(
+                'name'=>'Events',
+            ),
+            'menu_icon'=>'dashicons-calendar',
+        ) );
+    }
+
+    add_action( 'init','dazzle_post_type');
     
 ?>
