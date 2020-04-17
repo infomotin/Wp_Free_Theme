@@ -4,10 +4,16 @@ get_header();?>
     <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg'); ?>);"></div>
     <div class="page-banner__content container container--narrow">
       <!-- <h1 class="page-banner__title"><?php the_title(); ?></h1> -->
-      <H1 class="page-banner__title">Welcome To Our Blog </H1>
+      <H1 class="page-banner__title"><?php if (is_category( )){
+          single_cat_title( );
+      } 
+      if(is_author( )){
+        echo "Post By ";the_author();
+      }
+      ?></H1>
       <div class="page-banner__intro">
         <p>Repace This Text Next Time. </p>
-        <p>This Page Power by index.php </p>
+        <p>This Page Power by archive.php </p>
       </div>
     </div>  
   </div>

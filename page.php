@@ -9,6 +9,7 @@
       <h1 class="page-banner__title"><?php the_title(); ?></h1>
       <div class="page-banner__intro">
         <p>Repace This Text Next Time. </p>
+        <p>this page is Power By Page.php </p>
       </div>
     </div>  
   </div>
@@ -26,7 +27,7 @@
 
         if($the_paren){
             ?>
-          <div class="metabox metabox--position-up metabox--with-home-link">
+        <div class="metabox metabox--position-up metabox--with-home-link">
           <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($the_paren) ?>"><i class="fa fa-home" aria-hidden="true"></i> Back to <?php echo get_the_title($the_paren);?></a> <span class="metabox__main"><?php the_title();?></span></p>
         </div>
        
