@@ -27,15 +27,15 @@
             <h3 class="headline headline--small">Learn</h3>
             <nav class="nav-list">
               <?php 
-              wp_nav_menu(array(
-                'theme_location'  => 'footer2',
-              ) )
+              // wp_nav_menu(array(
+              //   'theme_location'  => 'footer2',
+              // ) )
               ?>
-              <!-- <ul>
+              <ul>
                 <li><a href="<?php echo site_url('/privacy-policy'); ?>">Legal</a></li>
                 <li><a href="<?php echo site_url('/privacy-policy-2'); ?>">Privacy</a></li>
                 <li><a href="#">Careers</a></li>
-              </ul> -->
+              </ul>
             </nav>
           </div>
         </div>

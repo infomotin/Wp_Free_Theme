@@ -1,4 +1,4 @@
-
+<p>Power by single.php </p>
 <?php 
 get_header( );
     while(have_posts()){
