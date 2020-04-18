@@ -87,35 +87,9 @@
 
 
     
-?>
 
 
-<!-- //must Plugin part 
-//post type declearing 
-    function dazzle_post_type(){
-        register_post_type( 'event', array(
-            'public'=>true,
-            // 'capability_type'       => 'page',
-            // 'map_meta_cap'          => true,
-            // 'menu_position'         => 20,
-            // 'menu_icon'             => 'dashicons-admin-page',
-            // 'hierarchical'          => true,
-            // 'rewrite'               => false,
-            // 'query_var'             => false,
-            // 'delete_with_user'      => true,
-            // 'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments', 'revisions' ),
-            // 'show_in_rest'          => true,
-            // 'rest_base'             => 'pages',
-            // 'rest_controller_class' => 'WP_REST_Posts_Controller',
-            'labels'=>array(
-		'all_items' =>'All Events',
-                'name'=>'Events',
-		'add_new_item'=>'Add New Event',
-		'edit_item'=>'Edit Event',
-            ),
-            'menu_icon'=>'dashicons-calendar',
-		'show_ui'=> true,
-        ) );
-    }
 
-    add_action( 'init','dazzle_post_type'); -->
+//must Plugin part 
+
+    ?>
