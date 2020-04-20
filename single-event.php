@@ -30,12 +30,13 @@ get_header( );
   <!-- Reletions Showing on HTML -->
   <?php 
   $reletionFields = get_field('relations_programs');
+  if($reletionFields){
   foreach($reletionFields as $program){ ?>
     <!-- //echo get_the_title($program); -->
     <li><a href="<?php echo get_the_permalink( $program ); ?>"><?php echo get_the_title($program);?></a></li>
     
 <?php }
- 
+ }
  ?>
   
   
