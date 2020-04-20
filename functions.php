@@ -88,8 +88,47 @@
 
     
 
+    //contorling custom query form  functions file 
+    
+    function dazzle_post_feature($query){
+        if(!is_admin() and is_post_type_archive( 'program' ) and $query->is_main_query() ){
+            $query->set('orderby','title');
+           $query->set('order','ASC');
+           $query->set('posts_per_page',-1);
+        }
+        //$query->set('posts_per_page','1');//all result form function 
+        //this conditions only works if it is main query and post arche post type is 'event' and not admin 
+        if (!is_admin() and is_post_type_archive('event') and $query->is_main_query()){
+           // $query->set('posts_per_page','1');//dashboard show only one result 
+           //its looks like sql statements like where and set the conditions as like the do its go on this 
+           //'posts_per_page'=>3,
+           //     'post_type'=>'event',$query->set('post_type','event'); as like as 
+           //     'order_by'=>'meta_value',//rand for every time randome event Show 
+           //     'meta_key'=>'event_date',//'post_date',//order by query meta is custo value at any case 
+           $query->set('order_by','meta_value');
+           $query->set('meta_key','event_date');
+           $query->set('posts_per_page','3');// every page this are custom this qurry result thats depend on query conditions 
+        }
+        //contorling the blog archive 
+        // if (!is_admin() and is_post_type_archive('blog') and $query->is_main_query()){
+        //     $query->set('posts_per_page','2');
+        // }
+        // 'posts_per_page'=>3,
+        //         'post_type'=>'event',
+        //         'order_by'=>'meta_value',//rand for every time randome event Show 
+        //         'meta_key'=>'event_date',//'post_date',//order by query meta is custo value at any case 
 
+        //         'meta_query'=>array(
+        //             array(
+        //               'key'=>'event_date',//its a sql like where conditions 
+        //               'compare'=>'>=',
+        //               'value'=>$today,
+        //               'type'=>'numeric'
 
+        //             )
+        //         ),
+    }
+    add_action( 'pre_get_posts','dazzle_post_feature');
 //must Plugin part 
 
     ?>

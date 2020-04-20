@@ -14,9 +14,22 @@
       <div class="full-width-split__inner">
         <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
         <?php 
+          $today = date('Ymd');
             $custom_query_for_home_events = new WP_Query(array(
                 'posts_per_page'=>3,
                 'post_type'=>'event',
+                'order_by'=>'meta_value',//rand for every time randome event Show 
+                'meta_key'=>'event_date',//'post_date',//order by query meta is custo value at any case 
+
+                'meta_query'=>array(
+                    array(
+                      'key'=>'event_date',//its a sql like where conditions 
+                      'compare'=>'>=',
+                      'value'=>$today,
+                      'type'=>'numeric'
+
+                    )
+                ),
             ));
             while($custom_query_for_home_events->have_posts()){
               $custom_query_for_home_events->the_post( );
@@ -72,6 +85,8 @@
         <?php 
             $custom_query_for_home = new WP_Query(array(
                 'posts_per_page'=>3,
+                //'order_by'=>'post_date',
+                //'order'=>'ASC'
             ));
             while($custom_query_for_home->have_posts()){
                 $custom_query_for_home->the_post( );
