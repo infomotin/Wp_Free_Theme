@@ -51,46 +51,50 @@ get_header( );
                     ),
                 ),
             ));
-            while($custom_query_for_home_events->have_posts()){
-              $custom_query_for_home_events->the_post( );
-                
-                ?>
-        <div class="event-summary">
-          <a class="event-summary__date t-center" href="#">
-            <span class="event-summary__month"><?php 
-            
-            $aData = get_field('event_date');
-            //echo $aData;
-            //$eventDate  = the_field('event_date');
-            //$eventDate = new DateTime(the_field('event_date'));
-            $eventDate = new DateTime($aData);
-            echo $eventDate->format('M');
-            
-            ?></span>
-            <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>  
-          </a>
-          <div class="event-summary__content">
-            <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a></h5>
-            <p><?php if(has_excerpt( )){
-                      echo get_the_excerpt();
-            }else{
-              echo wp_trim_words(get_the_content(), 18);
-            } 
-            ?> <a href="<?php the_permalink( ); ?>" class="nu gray">Learn more</a></p>
-          </div>
+        if($custom_query_for_home_events->have_posts()){
+          echo '<hr class="section-break">';
+          echo "<h2 class='headline headline--medium'> Upcoming ". get_the_title(). " Events </h2>";
+          while($custom_query_for_home_events->have_posts()){
+            $custom_query_for_home_events->the_post( );
+              
+              ?>
+      <div class="event-summary">
+        <a class="event-summary__date t-center" href="#">
+          <span class="event-summary__month"><?php 
+          
+          $aData = get_field('event_date');
+          //echo $aData;
+          //$eventDate  = the_field('event_date');
+          //$eventDate = new DateTime(the_field('event_date'));
+          $eventDate = new DateTime($aData);
+          echo $eventDate->format('M');
+          
+          ?></span>
+          <span class="event-summary__day"><?php echo $eventDate->format('d'); ?></span>  
+        </a>
+        <div class="event-summary__content">
+          <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a></h5>
+          <p><?php if(has_excerpt( )){
+                    echo get_the_excerpt();
+          }else{
+            echo wp_trim_words(get_the_content(), 18);
+          } 
+          ?> <a href="<?php the_permalink( ); ?>" class="nu gray">Learn more</a></p>
         </div>
-        <!-- <div class="event-summary">
-          <a class="event-summary__date t-center" href="#">
-            <span class="event-summary__month">Apr</span>
-            <span class="event-summary__day">02</span>  
-          </a>
-          <div class="event-summary__content">
-            <h5 class="event-summary__title headline headline--tiny"><a href="#">Quad Picnic Party</a></h5>
-            <p>Live music, a taco truck and more can found in our third annual quad picnic day. <a href="#" class="nu gray">Learn more</a></p>
-          </div>
-        </div> -->
-        <?php }
-        wp_reset_postdata();
+      </div>
+      <!-- <div class="event-summary">
+        <a class="event-summary__date t-center" href="#">
+          <span class="event-summary__month">Apr</span>
+          <span class="event-summary__day">02</span>  
+        </a>
+        <div class="event-summary__content">
+          <h5 class="event-summary__title headline headline--tiny"><a href="#">Quad Picnic Party</a></h5>
+          <p>Live music, a taco truck and more can found in our third annual quad picnic day. <a href="#" class="nu gray">Learn more</a></p>
+        </div>
+      </div> -->
+      <?php }
+      wp_reset_postdata();
+        }
         ?>
 
 
