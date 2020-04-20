@@ -28,7 +28,18 @@ get_header( );
   <div class="generic-content">
       <?php the_content( );?>
     </div>
+    <?php 
+  $reletionFields = get_field('eventtoprogram');
+  foreach($reletionFields as $program){ ?>
+    <!-- //echo get_the_title($program); -->
+    <li><a href="<?php echo get_the_permalink( $program ); ?>"><?php echo get_the_title($program);?></a></li>
+    
+<?php }
+ 
+ ?>
     </div>
+
+
    <?php }
     get_footer();
 ?>
